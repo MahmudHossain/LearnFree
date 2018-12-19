@@ -1,0 +1,334 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Education</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			{% load static %}
+			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+			<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		</head>
+		<body>
+		  <header id="header" id="home">
+	  		<div class="header-top">
+	  			<div class="container">
+			  		<div class="row">
+
+
+			  		</div>
+	  			</div>
+			</div>
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+			      </div>
+			      <nav id="nav-menu-container">
+			        <ul class="nav-menu">
+
+					  {% if request.user.is_authenticated %}
+						<li class="menu-has-children"><a href="{% url 'logout' %}">Logout</a></li>
+						<li class="menu-has-children"><a href="{% url 'profile' %}">Profile</a></li>
+						{% else %}
+						<li><a href="http://127.0.0.1:8000/index">Home</a></li>
+			          <li><a href="http://127.0.0.1:8000/about">About</a></li>
+			          <li><a href="http://127.0.0.1:8000/courses">Courses</a></li>
+			          <li><a href="http://127.0.0.1:8000/library">Events</a></li>
+			          <li><a href="http://127.0.0.1:8000/gallery">Gallery</a></li>
+			          <li class="menu-has-children"><a href="http://127.0.0.1:8000/blog">Blog</a></li>
+			          <!--<li><a href="http://127.0.0.1:8000/contact">Contact</a></li>-->
+						<li class="menu-has-children"><a href="{% url 'login' %}">Login</a></li>
+						{% endif %}
+			        </ul>
+			      </nav><!-- #nav-menu-container -->
+		    	</div>
+		    </div>
+		  </header><!-- #header -->
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Blog Details Page
+							</h1>
+							<p class="text-white link-nav"><a href="http://127.0.0.1:8000/index">Home </a>  <span class="lnr lnr-arrow-right"></span><a href="http://127.0.0.1:8000/blog">Blog </a> </p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+
+			<!-- Start post-content Area -->
+			<section class="post-content-area single-post-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 posts-list">
+							<div class="single-post row">
+								<div class="col-lg-12">
+									<div align="center" class="embed-responsive embed-responsive-16by9">
+											<video width="840" height="480" poster="" muted controls class="embed-responsive-item">
+                                            <source src="{{post.video_file.url}} #t=[start_time][,end_time]" type="video/mp4">
+                                        </video>
+									</div>
+								</div>
+								<div class="col-lg-3  col-md-3 meta-details">
+                                    <!--
+									<ul class="tags">
+										<li><a href="#">{{post.category}}</a></li>
+
+									</ul>
+									-->
+                                    <p>{{post.title}}</p>
+									<p class="excert">
+                                        {{ post.body|safe }}
+                                    </p>
+                                    <a href="{{ post.document.url }}" target="blank">{{post.document}}</a>
+
+									<div class="user-details row">
+                                        <!--
+										<p class="user-name col-lg-12 col-md-12 col-6">{{ post.video_author }} <span class="lnr lnr-user"></span></p>
+										<p class="date col-lg-12 col-md-12 col-6">{{ post.updated_on }} <span class="lnr lnr-calendar-full"></span></p>
+										<p class="view col-lg-12 col-md-12 col-6">1.2M Views <span class="lnr lnr-eye"></span></p>
+										-->
+
+									</div>
+								</div>
+								<div class="col-lg-9 col-md-9">
+
+
+									<!--<div class="single_post_comment">
+										{% for comment in comment %}
+										<div class="single_comment">
+											<h4>{{ comment.name }}</h4>
+											<h5>{{ comment.email }}</h5>
+											<p>{{ comment.post_comment }}</p>
+										</div>
+										{% empty %}
+										<h4>No Comments</h4>
+										{% endfor %}
+									</div>-->
+									<!--<div class="panel panel-default">
+											<div class="panel-heading"><h3 class="panel-title">Comment</h3></div>
+  											<div class="panel-body">
+												<form action="" method="POST">
+													{% csrf_token %}
+													{{ form.as_p }}
+													<button class="btn btn-primary">Submit</button>
+												</form>
+											</div>
+										</div>-->
+
+								</div>
+
+
+								<div class="col-lg-8 event-details-left">
+
+								<h4 class="mb-10">Related Videos</h4>
+
+
+							<div class="row">
+						{% for r in related %}
+						<div class="single-popular-carusel col-lg-6 col-md-6">
+
+							<div class="thumb-wrap relative">
+								<div class="thumb relative">
+
+									<video width="220" height="220" poster="" muted controls class="embed-responsive-item">
+                                            <source src="{{r.video_file.url}} #t=[start_time][,end_time]" type="video/mp4">
+                                        </video>
+								</div>
+
+								</div>
+
+							<div class="details">
+								<a href="{% url 'video_single' id=r.id %}">
+									<h4>
+										{{r.title}}
+									</h4>
+								</a>
+								<p>
+
+								</p>
+
+							</div>
+								<!--<div class="meta d-flex justify-content-between">
+									<p><span class="lnr lnr-users"></span> 355 <span class="lnr lnr-bubble"></span>35</p>
+									<h4>$150</h4>
+								</div>	-->
+							</div>
+							{% endfor %}
+			</section>
+
+
+
+                                 <div class="comments-area">
+                                    <h4>Comments</h4>
+								<div class="comment-list">
+									{% for com in comment %}
+                                    <div class="single-comment justify-content-between d-flex">
+                                        <div class="user justify-content-between d-flex">
+
+                                            <div class="desc">
+                                                <h5><a href="">{{com.name}}</a></h5>
+                                                <p class="comment">
+                                                    {{ com.post_comment }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="reply-btn">
+                                               <!--<a href="" class="btn-reply text-uppercase">reply</a>-->
+                                        </div>
+                                    </div>
+									{% empty %}
+									<h5>No Comments</h5>
+									{% endfor %}
+                                </div>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-4 sidebar-widgets">
+
+                        </div>
+
+			</section>
+			<!-- End post-content Area -->
+		  							<div class="panel panel-default">
+											<div class="panel-heading"><h3 class="panel-title">Leave a comment</h3></div>
+
+												<form action="" method="POST" class="form">
+													<div class="form-group col-md-4">
+													{% csrf_token %}
+													{{ form.as_p }}
+													<button class="btn btn-primary">Submit</button>
+														</div>
+												</form>
+
+										</div>
+
+			<!-- start footer Area -->
+			<footer class="footer-area section-gap">
+				<!--<div class="container">
+					<div class="row">
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4>Top Products</h4>
+								<ul>
+									<li><a href="#">Managed Website</a></li>
+									<li><a href="#">Manage Reputation</a></li>
+									<li><a href="#">Power Tools</a></li>
+									<li><a href="#">Marketing Service</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4>Quick links</h4>
+								<ul>
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Brand Assets</a></li>
+									<li><a href="#">Investor Relations</a></li>
+									<li><a href="#">Terms of Service</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4>Features</h4>
+								<ul>
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Brand Assets</a></li>
+									<li><a href="#">Investor Relations</a></li>
+									<li><a href="#">Terms of Service</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4>Resources</h4>
+								<ul>
+									<li><a href="#">Guides</a></li>
+									<li><a href="#">Research</a></li>
+									<li><a href="#">Experts</a></li>
+									<li><a href="#">Agencies</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h4>Newsletter</h4>
+								<p>Stay update with our latest</p>
+								<div class="" id="mc_embed_signup">
+									 <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+									  <div class="input-group">
+									    <input type="text" class="form-control" name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address '" required="" type="email">
+									    <div class="input-group-btn">
+									      <button class="btn btn-default" type="submit">
+									        <span class="lnr lnr-arrow-right"></span>
+									      </button>
+									    </div>
+									    	<div class="info"></div>
+									  </div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-bottom row align-items-center justify-content-between">
+
+						<div class="col-lg-6 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+
+			<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'js/easing.min.js' %}"></script>
+			<script src="{% static 'js/hoverIntent.js' %}"></script>
+			<script src="{% static 'js/superfish.min.js' %}"></script>
+			<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    		<script src="{% static 'js/jquery.tabs.min.js' %}"></script>
+			<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+			<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+			<script src="{% static 'js/mail-script.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+		</body>
+	</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<h1 class="forum">Forum</h1>
+
+			</div>
+
+		</div>
+	</div>
+    <div class="heading">
+
+</div>
+
+<div class="container">
+
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Comment" class="btn btn-primary mb-2">
+</form>
+
+  <h2 data-toggle="collapse" data-target="#demo" class="heading" >{{comments.count}} Comments</h2>
+  <div id="demo" class="collapse comment-title">
+  {% for comment in comments %}
+   <p>{{comment.content}} <span style="color:blue;">[{{comment.time}}]</span></p>
+
+
+    <!-- //////////////////////////////////////////////<button type="button" class="btn btn-info btn-kishor" data-toggle="collapse" data-target="#demo"  >Post a Comment</button>-->
+
+    <div class="" id="demo1">
+    {% for reply in comment.replies.all %}
+        <p>{{reply.content}} <span style="color:blue;">[{{reply.time}}]</span></p>
+    {% endfor %}
+    	<form action="" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="comment_id" value="{{ comment.id}}" class="comment-box">
+    {{ form.as_p }}
+    <input type="submit" value="Reply" class="comment-box">
+    </form>
+
+    </div>
+    {% endfor %}
+  </div>
+  <!-- ////////////////////////////////////////////// -->
+
+
+
+</div>
+
+</body>
+</html>

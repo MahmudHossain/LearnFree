@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=family=Rancho&effect=shadow-multiple" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			{% load static %}
+			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+			<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+<form action="" method="post" class="form">
+<div class="form-group col-md-6">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Register</button>
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+		<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Education</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			{% load static %}
+			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+			<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		</head>
+		<body>
+		  <header id="header" id="home">
+			  <!--
+	  		<div class="header-top">
+
+	  			<div class="container">
+			  		<div class="row">
+			  			<div class="col-lg-6 col-sm-6 col-8 header-top-left no-padding">
+			  				<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-behance"></i></a></li>
+			  				</ul>
+			  			</div>
+			  			<div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
+			  				<a href="tel:+953 012 3654 896"><span class="lnr lnr-phone-handset"></span> <span class="text">+953 012 3654 896</span></a>
+			  				<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">support@colorlib.com</span></a>
+			  			</div>
+			  		</div>
+
+	  			</div>
+			</div>
+			-->
+		    <div class="container main-menu">
+		    	<div class="row align-items-center justify-content-between d-flex">
+			      <div id="logo">
+			        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+			      </div>
+			      <nav id="nav-menu-container">
+			         <ul class="nav-menu">
+
+					  {% if request.user.is_authenticated %}
+						<li class="menu-has-children"><a href="{% url 'logout' %}">Logout</a></li>
+						<li class="menu-has-children"><a href="{% url 'profile' %}">Profile</a></li>
+						{% else %}
+						<li><a href="http://127.0.0.1:8000/index">Home</a></li>
+			          <li><a href="http://127.0.0.1:8000/about">About</a></li>
+			          <li><a href="http://127.0.0.1:8000/courses">Courses</a></li>
+			          <li><a href="http://127.0.0.1:8000/library">Events</a></li>
+			          <li><a href="http://127.0.0.1:8000/gallery">Gallery</a></li>
+			          <li class="menu-has-children"><a href="http://127.0.0.1:8000/blog">Blog</a></li>
+			         <!-- <li><a href="http://127.0.0.1:8000/contact">Contact</a></li> -->
+						<li class="menu-has-children"><a href="{% url 'login' %}">Login</a></li>
+						{% endif %}
+			        </ul>
+			      </nav><!-- #nav-menu-container -->		    		
+		    	</div>
+		    </div>
+		  </header><!-- #header -->
+		  <!-- start banner Area -->
+			<section class="banner-area relative about-banner">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<p class="text-white">
+								E-Learning Education Center delivers free courses in Entrepreneurship,
+	  							Freelancing, Computer Science, Software Development, Graphics Design,
+								  Business, Marketing and Communication. Still hungry for more?
+								  You can also find miscellaneous courses which feature everything
+								  from Rocket Science to Guitar Playing.
+															E-Learning Education Center delivers free courses in Entrepreneurship,
+								  Freelancing, Computer Science, Software Development, Graphics Design,
+								  Business, Marketing and Communication. Still hungry for more?
+								  You can also find miscellaneous courses which feature everything
+								  from Rocket Science to Guitar Playing.
+							</p>
+							<p class="text-white link-nav"><span class="lnr lnr-arrow-left"></span><a href="http://127.0.0.1:8000/index">Home </a><a href="about.html"> </a></p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+
+<div style="background-color:black;color:white;padding:20px;">
+  <h2>About US</h2>
+  <p>E-Learning Education Center was launched with the purpose of helping
+	  you to learn valuable new skills that will help you make the most
+	  out of your work environment and keep you updated with the most
+	  recent developments in the tech world. Each online course on
+	  E-Learning  Education Center is designed and reviewed by the
+	  E-Learning Review Team with special attention given to the quality of the content.
+  </p>
+
+</div>
+          <div style="background-color:black;color:white;padding:20px;">
+  <h2>Course Topics</h2>
+
+  <p>E-Learning Education Center delivers free courses in Entrepreneurship,
+	  Freelancing, Computer Science, Software Development, Graphics Design,
+	  Business, Marketing and Communication. Still hungry for more?
+	  You can also find miscellaneous courses which feature everything
+	  from Rocket Science to Guitar Playing.
+  </p>
+</div>
+		  <div style="background-color:black;color:white;padding:20px;">
+  <h2> Who are the teachers? </h2>
+
+  <p> Education Center features classes from leading online course creators who've spent
+	  thousands of hours teaching classes that aim to help students advance in their professional lives.
+	  We ensure that each of our teachers meet our high standards and truly care about helping their students.
+Still missing something in our course catalog? Let us know! If there is a skill you wish to learn that is not
+	  yet featured in our portfolio, we'd love to hear from you and use your feedback
+	  to improve E-Learning Education Center to meet your needs! . </p>
+</div>
+
+
+
+
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+                <h2 class="mb-10" style="text-align: center">All Rights Reserved by Elearning</h2>
+			</footer>	
+			<!-- End footer Area -->	
+
+			<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="{% static 'js/easing.min.js' %}"></script>
+			<script src="{% static 'js/hoverIntent.js' %}"></script>
+			<script src="{% static 'js/superfish.min.js' %}"></script>
+			<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    		<script src="{% static 'js/jquery.tabs.min.js' %}"></script>
+			<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+			<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+			<script src="{% static 'js/mail-script.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+		</body>
+	</html>

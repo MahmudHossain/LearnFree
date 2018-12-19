@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Blog Category</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class=" login">
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+  <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+
+  <h2>Blog Category</h2>
+
+        <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Category</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in topics %}
+    <tr>
+
+
+        <td><a href="">{{ t.name }}</a></td>
+
+    </tr>
+    {% endfor %}
+
+  </tbody><a href="{% url 'create' %}" class="btn-link pull pull-right">
+
+  </a>
+</table>
+
+		</div>
+
+	</div>
+</div>
+
+<!-- END Container -->
+
+</body>
+</html>
